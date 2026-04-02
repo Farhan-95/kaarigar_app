@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611830448269",
+    "project_id": "kaarigar-50df1",
+    "storage_bucket": "kaarigar-50df1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611830448269:android:58fc9932170d4756b4a2c4",
+        "android_client_info": {
+          "package_name": "com.example.frontend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXCORaJSdtFsmFj3fTzT6s3xsphOE9fsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
