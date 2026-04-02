@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kaarigar/views/auth/log_in_screen.dart';
 import 'package:kaarigar/views/auth/service_category_screen.dart';
 import 'package:kaarigar/views/auth/verification_screen.dart';
+import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/custom_text_field.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_black_button.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,19 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final screenHeight = mediaQuery.size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff553FA5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SizedBox(
-            height: 32,
-            width: 32,
-            child: Image.asset('assets/icons/white_back_arrow.png'),
-          ),
-        ),
-      ),
+      appBar: PurpleAppBar(),
       backgroundColor: Color(0xff553FA5),
       body: SafeArea(
         child: Padding(

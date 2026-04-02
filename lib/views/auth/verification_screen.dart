@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/customize_button/customize_black_button.dart';
 
@@ -34,24 +35,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Verification Code',
-          style: GoogleFonts.roboto(fontSize: 18, color: Colors.white),
-        ),
-        backgroundColor: Color(0xff553FA5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SizedBox(
-            height: 32,
-            width: 32,
-            child: Image.asset('assets/icons/white_back_arrow.png'),
-          ),
-        ),
-      ),
+      appBar: PurpleAppBar(title: 'Verification Code',),
       backgroundColor: Color(0xff553FA5),
       body: SafeArea(
         child: SingleChildScrollView(

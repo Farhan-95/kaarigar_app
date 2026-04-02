@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 
 class WalletScreen extends StatelessWidget {
   const WalletScreen({super.key});
@@ -13,28 +14,7 @@ class WalletScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Color(0xff553FA5),
-      appBar: AppBar(
-        title: Text(
-          'My Wallet',
-          style: GoogleFonts.roboto(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Color(0xff553FA5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SizedBox(
-            height: 32,
-            width: 32,
-            child: Image.asset('assets/icons/white_back_arrow.png'),
-          ),
-        ),
-      ),
+      appBar: PurpleAppBar(title: 'My Wallet',),
       body: Column(
         children: [
           SizedBox(height: screenHeight * 0.10),

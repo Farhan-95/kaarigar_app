@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 
 import '../widgets/custom_text_field.dart';
 import '../widgets/customize_button/customize_black_button.dart';
@@ -27,19 +28,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff553FA5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SizedBox(
-            height: 32,
-            width: 32,
-            child: Image.asset('assets/icons/white_back_arrow.png'),
-          ),
-        ),
-      ),
+      appBar: PurpleAppBar(),
       backgroundColor: Color(0xff553FA5),
       body: SafeArea(
         child: Padding(
@@ -65,7 +54,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(height: screenHeight*0.020,),
               Center(
                 child: Text(
-                  'Enter your registered to retrieve',
+                  'Enter your registered Email to retrieve',
                   style: GoogleFonts.roboto(
                     fontSize: screenWidth * 0.04,
                     color: Colors.white,
@@ -86,7 +75,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 height: screenHeight * 0.065,
                 child: CustomTextField(
                   controller: phoneController,
-                  hintText: 'Mobile Number',
+                  hintText: 'Enter your Email',
                   autoFocused: true,
                 ),
               ),

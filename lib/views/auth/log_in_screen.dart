@@ -3,6 +3,7 @@ import 'package:kaarigar/views/app_screens/main_screen.dart';
 import 'package:kaarigar/views/auth/forgot_password_screen.dart';
 import 'package:kaarigar/views/auth/sign_up_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/direct_app_in_widget.dart';
 
 import '../widgets/custom_text_field.dart';
@@ -29,19 +30,7 @@ class _LogInScreenState extends State<LogInScreen> {
     final screenHeight = mediaQuery.size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff553FA5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SizedBox(
-            height: 32,
-            width: 32,
-            child: Image.asset('assets/icons/white_back_arrow.png'),
-          ),
-        ),
-      ),
+      appBar:PurpleAppBar(),
       backgroundColor: Color(0xff553FA5),
       body: SafeArea(
         child: Padding(
@@ -79,7 +68,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 SizedBox(
                   height: screenHeight * 0.065,
                   child: CustomTextField(
-                    hintText: 'Mobile Number',
+                    hintText: 'Enter your Email',
                     controller: emailController,
                     autoFocused: true,
                   ),
