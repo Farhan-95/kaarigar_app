@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/widgets/custom_appbar_widget/white_app_bar.dart';
+import '../widgets/custom_appbar_widget/purple_app_bar.dart';
 
 class ServiceCategoryScreen extends StatefulWidget {
   const ServiceCategoryScreen({super.key});
@@ -22,7 +22,7 @@ class _ServiceCategoryScreenState extends State<ServiceCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WhiteAppBar(title: 'Services Categories'),
+      appBar: PurpleAppBar(title: 'Services Categories'),
       body: ListView(
         children: [
           for (int i = 0; i <= catList.length - 1; i++)

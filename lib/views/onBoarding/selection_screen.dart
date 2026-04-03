@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kaarigar/core/utils/text_style.dart';
 import 'package:kaarigar/views/auth/log_in_screen.dart';
 import 'package:kaarigar/views/auth/sign_up_screen.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_blue_button.dart';
@@ -52,7 +53,7 @@ class SelectionScreen extends StatelessWidget {
                 CustomizeBlueButton(
                   buttonWidth: 170,
                   buttonHeight: 55,
-                  buttonName: 'SIGN IN',
+                  buttonName: Text('SIGN IN',style: myTextStyle(Colors.white, 20, false),),
                   onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>LogInScreen()));},
                   buttonColor: Color(0xff57A4C3),
                 ),
@@ -60,7 +61,7 @@ class SelectionScreen extends StatelessWidget {
                 CustomizeBlueButton(
                   buttonWidth: 170,
                   buttonHeight: 55,
-                  buttonName: 'SIGN UP',
+                  buttonName: Text('SIGN UP',style: myTextStyle(Colors.white, 20, false),),
                   onPressed: () {
                     Navigator.push(
                       context,

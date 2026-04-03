@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomizeBlueButton extends StatelessWidget {
   const CustomizeBlueButton({
@@ -10,7 +9,7 @@ class CustomizeBlueButton extends StatelessWidget {
     required this.buttonWidth,
     required this.buttonHeight,
   });
-  final String buttonName;
+  final Widget buttonName;
   final VoidCallback onPressed;
   final Color buttonColor;
   final double buttonWidth;
@@ -25,10 +24,7 @@ class CustomizeBlueButton extends StatelessWidget {
         fixedSize: Size(buttonWidth, buttonHeight),
         backgroundColor: buttonColor,
       ),
-      child: Text(
-        buttonName,
-        style: GoogleFonts.roboto(fontSize: 18, color: Colors.white),
-      ),
+      child: buttonName
     );
   }
 }

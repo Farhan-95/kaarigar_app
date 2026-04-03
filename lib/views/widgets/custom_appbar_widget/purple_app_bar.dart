@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PurpleAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const PurpleAppBar({super.key,this.title = "",});
+  const PurpleAppBar({super.key,this.title = "",this.action});
 
   final String? title;
+  final List<Widget>? action;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class PurpleAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Image.asset('assets/icons/white_back_arrow.png'),
         ),
       ),
+      actions: action,
     );
   }
 

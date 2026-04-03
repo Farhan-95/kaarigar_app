@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/app_screens/menu_screens/menu_screen.dart';
-import 'package:kaarigar/views/app_screens/menu_screens/wallet_screen.dart';
+import 'package:kaarigar/views/app_screens/main_screens/account_screen.dart';
+import 'package:kaarigar/views/app_screens/main_screens/menu_screen.dart';
+import 'package:kaarigar/views/app_screens/main_screens/search_screen.dart';
+import 'package:kaarigar/views/app_screens/main_screens/wallet_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -11,7 +13,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-  List<Widget> screens =[MenuScreen(),MenuScreen(),WalletScreen(),MenuScreen(),MenuScreen()];
+  List<Widget> screens =[MenuScreen(),SearchScreen(),WalletScreen(),AccountScreen(),MenuScreen()];
   int bottomNavigationBarIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         selectedItemColor: Color(0xff553FA5),
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.message),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.search),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.wallet_outlined),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.person),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.menu),label: ""),

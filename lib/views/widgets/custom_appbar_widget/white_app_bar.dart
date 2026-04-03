@@ -10,6 +10,7 @@ class WhiteAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      shadowColor: Colors.black26,
       title: Text(
         title,
         style: GoogleFonts.roboto(fontSize: 18, fontWeight: FontWeight.bold),
