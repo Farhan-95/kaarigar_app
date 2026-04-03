@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/onBoarding/notification_screen2.dart';
+import 'package:kaarigar/core/routes/app_route.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_black_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,12 +18,7 @@ class NotificationScreen1 extends StatelessWidget {
               Spacer(),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NotificationScreen2(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, AppRoute.location);
                 },
                 child: Text(
                   'SKIP',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/onBoarding/notification_screen1.dart';
+import '../../core/routes/app_route.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void moveNext()async{
    await Future.delayed(Duration(seconds: 5));
-   Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen1()));
+   Navigator.pushReplacementNamed(context, AppRoute.notification);
   }
   @override
   Widget build(BuildContext context) {

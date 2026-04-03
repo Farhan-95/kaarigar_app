@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/auth/log_in_screen.dart';
-import 'package:kaarigar/views/auth/service_category_screen.dart';
 import 'package:kaarigar/views/auth/verification_screen.dart';
 import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/custom_text_field.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_black_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaarigar/views/widgets/direct_app_in_widget.dart';
+
+import '../../core/routes/app_route.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -164,12 +164,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       suffix: IconButton(
                         icon: Icon(CupertinoIcons.forward, color: Colors.white),
                         onPressed: () async {
-                          final result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ServiceCategoryScreen(),
-                            ),
-                          );
+                          final result = await Navigator.pushNamed<String>(context, AppRoute.category);
                           if (result != null) {
                             setState(() {
                               selectedValue = result;
@@ -212,12 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Flexible(
                         child: InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LogInScreen(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, AppRoute.signIn);
                           },
                           child: Text(
                             'Sign In',

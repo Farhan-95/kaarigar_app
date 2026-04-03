@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/app_screens/main_screen.dart';
 import 'package:kaarigar/views/auth/forgot_password_screen.dart';
-import 'package:kaarigar/views/auth/sign_up_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/direct_app_in_widget.dart';
 
+import '../../core/routes/app_route.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/customize_button/customize_black_button.dart';
 
@@ -110,13 +109,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 CustomizeBlackButton(
                   buttonName: 'SIGN IN',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            MainScreen(),
-                      ),
-                    );
+                   Navigator.pushReplacementNamed(context, AppRoute.main);
                   },
                 ),
                 SizedBox(height: screenHeight * 0.015),
@@ -134,12 +127,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     Flexible(
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUpScreen(),
-                            ),
-                          );
+                          Navigator.pushNamed(context, AppRoute.signup);
                         },
                         child: Text(
                           'Sign Up',

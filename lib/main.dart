@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kaarigar/core/routes/app_route.dart';
 import 'package:kaarigar/views/splash/splash_screen.dart';
 
 void main()async{
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kaarigar',
       home: SplashScreen(),
+      initialRoute: AppRoute.splash,
+      onGenerateRoute:(settings) => AppRoute.generateRoute(settings),
     );
   }
 }
