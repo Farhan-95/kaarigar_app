@@ -3,6 +3,7 @@ import 'package:kaarigar/views/auth/forgot_password_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/direct_app_in_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/routes/app_route.dart';
 import '../widgets/custom_text_field.dart';
@@ -20,6 +21,11 @@ class _LogInScreenState extends State<LogInScreen> {
   final TextEditingController passwordController = TextEditingController();
 
   bool obSecure = true;
+
+  void valueChange()async{
+    SharedPreferences prefsValue = await SharedPreferences.getInstance();
+    await prefsValue.setBool('isLoggedIn', true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +115,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 CustomizeBlackButton(
                   buttonName: 'SIGN IN',
                   onPressed: () {
+                    valueChange();
                    Navigator.pushReplacementNamed(context, AppRoute.main);
                   },
                 ),

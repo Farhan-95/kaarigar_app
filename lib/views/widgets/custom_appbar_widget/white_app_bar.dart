@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WhiteAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const WhiteAppBar({super.key,required this.title,this.action});
+  const WhiteAppBar({super.key,required this.title,this.action,required this.leading});
 
    final String title;
    final List<Widget>? action;
+   final Widget leading;
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +18,7 @@ class WhiteAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       elevation: 2,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: SizedBox(
-          height: 32,
-          width: 32,
-          child: Image.asset('assets/icons/black_back_arrow.png'),
-        ),
-      ),
+      leading: leading,
       actions: action,
     );
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kaarigar/views/auth/verification_screen.dart';
+import 'package:kaarigar/services/shared_preferences_service.dart';
+import 'package:kaarigar/views/auth/service_category_screen.dart';
 import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/custom_text_field.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_black_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaarigar/views/widgets/direct_app_in_widget.dart';
-
 import '../../core/routes/app_route.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -23,6 +23,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController categoryController = TextEditingController();
 
   String selectedValue = '';
+
+ void valueChange()async{
+    await SharedPreferencesService.init();
+   await SharedPreferencesService.setBool('isLoggedIn', true);
+ }
 
   @override
   void dispose() {
@@ -164,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       suffix: IconButton(
                         icon: Icon(CupertinoIcons.forward, color: Colors.white),
                         onPressed: () async {
-                          final result = await Navigator.pushNamed<String>(context, AppRoute.category);
+                          final result = await Navigator.push(context, MaterialPageRoute(builder: (_)=>ServiceCategoryScreen()));
                           if (result != null) {
                             setState(() {
                               selectedValue = result;
@@ -181,13 +186,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     buttonName: 'SIGN UP',
                     onPressed: () {
                       if(formKey.currentState!.validate()){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                VerificationScreen(email: emailController.text),
-                          ),
-                        );
+                        valueChange();
+                        Navigator.pushReplacementNamed(context, AppRoute.main);
                       }
                     },
                   ),

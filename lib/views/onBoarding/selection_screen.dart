@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kaarigar/core/routes/app_route.dart';
 import 'package:kaarigar/core/utils/text_style.dart';
+import 'package:kaarigar/services/shared_preferences_service.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_blue_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelectionScreen extends StatelessWidget {
   const SelectionScreen({super.key});
+
+
+ void valueChange()async{
+   await SharedPreferencesService.init();
+   await SharedPreferencesService.setBool('isFirstTime', false);
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +60,9 @@ class SelectionScreen extends StatelessWidget {
                   buttonWidth: 170,
                   buttonHeight: 55,
                   buttonName: Text('SIGN IN',style: myTextStyle(Colors.white, 20, false),),
-                  onPressed: () {Navigator.pushNamed(context, AppRoute.signIn);},
+                  onPressed: () {
+                    valueChange();
+                    Navigator.pushNamed(context, AppRoute.signIn);},
                   buttonColor: Color(0xff57A4C3),
                 ),
                 SizedBox(width: 10),
@@ -62,6 +71,7 @@ class SelectionScreen extends StatelessWidget {
                   buttonHeight: 55,
                   buttonName: Text('SIGN UP',style: myTextStyle(Colors.white, 20, false),),
                   onPressed: () {
+                    valueChange();
                     Navigator.pushNamed(context, AppRoute.signup);
                   },
                   buttonColor: Color(0xff553FA5),
