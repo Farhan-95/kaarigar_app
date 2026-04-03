@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kaarigar/services/shared_preferences_service.dart';
+import 'package:kaarigar/services/shared_preference/shared_preferences_service.dart';
 import 'package:kaarigar/views/auth/service_category_screen.dart';
 import 'package:kaarigar/views/widgets/custom_appbar_widget/purple_app_bar.dart';
 import 'package:kaarigar/views/widgets/custom_text_field.dart';
@@ -24,10 +24,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   String selectedValue = '';
 
- void valueChange()async{
+  void valueChange() async {
     await SharedPreferencesService.init();
-   await SharedPreferencesService.setBool('isLoggedIn', true);
- }
+    await SharedPreferencesService.setBool('isLoggedIn', true);
+  }
 
   @override
   void dispose() {
@@ -37,6 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     categoryController.dispose();
     super.dispose();
   }
+
   final formKey = GlobalKey<FormState>();
   bool obSecure = true;
 
@@ -83,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-              
+
                   // Name & Phone Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,21 +104,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: CustomTextField(
                           hintText: 'Email',
                           controller: emailController,
-                          validator:(value){
-                            if(value == null || value.isEmpty){
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
                               return 'Email is required';
                             }
-                            if (!value.contains('@gmail.com')){
+                            if (!value.contains('@gmail.com')) {
                               return "Please Enter valid Email";
                             }
                             return null;
-                          } ,
+                          },
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: screenHeight * 0.015),
-              
+
                   SizedBox(
                     height: screenHeight * 0.090,
                     child: CustomTextField(
@@ -125,22 +126,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value == null || value.isEmpty) {
                           return 'Password is required';
                         }
-              
+
                         // Check for at least one integer (0-9)
                         if (!RegExp(r'(?=.*?[0-9])').hasMatch(value)) {
                           return 'Password must contain at least one number';
                         }
-              
+
                         // Check for at least one special character
                         if (!RegExp(r'(?=.*?[!@#\$&*~])').hasMatch(value)) {
                           return 'Password must contain at least one special symbol (!@#\$&*)';
                         }
-              
+
                         // Check for minimum length
                         if (value.length < 8) {
                           return 'Password must be at least 8 characters long';
                         }
-              
+
                         return null; // Password is valid
                       },
                       hintText: 'Password',
@@ -149,17 +150,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       suffix: IconButton(
                         onPressed: () {
                           setState(() {
-                            obSecure =!obSecure;
+                            obSecure = !obSecure;
                           });
                         },
                         icon: obSecure
-                            ? Icon(Icons.remove_red_eye,color: Colors.white,)
-                            : Icon(Icons.visibility_off,color: Colors.white,),
+                            ? Icon(Icons.remove_red_eye, color: Colors.white)
+                            : Icon(Icons.visibility_off, color: Colors.white),
                       ),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.015),
-              
+
                   SizedBox(
                     height: screenHeight * 0.065,
                     child: CustomTextField(
@@ -169,7 +170,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       suffix: IconButton(
                         icon: Icon(CupertinoIcons.forward, color: Colors.white),
                         onPressed: () async {
-                          final result = await Navigator.push(context, MaterialPageRoute(builder: (_)=>ServiceCategoryScreen()));
+                          final result = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ServiceCategoryScreen(),
+                            ),
+                          );
                           if (result != null) {
                             setState(() {
                               selectedValue = result;
@@ -181,11 +187,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-              
+
                   CustomizeBlackButton(
                     buttonName: 'SIGN UP',
                     onPressed: () {
-                      if(formKey.currentState!.validate()){
+                      if (formKey.currentState!.validate()) {
                         valueChange();
                         Navigator.pushReplacementNamed(context, AppRoute.main);
                       }
@@ -194,7 +200,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(height: screenHeight * 0.015),
                   DirectAppInWidget(),
                   SizedBox(height: screenHeight * 0.015),
-              
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -211,7 +217,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           },
                           child: Text(
                             'Sign In',
-                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

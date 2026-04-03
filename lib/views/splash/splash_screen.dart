@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaarigar/services/shared_preferences_service.dart';
+import 'package:kaarigar/services/shared_preference/shared_preferences_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/routes/app_route.dart';
 

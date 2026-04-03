@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kaarigar/core/routes/app_route.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_black_button.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class NotificationScreen2 extends StatelessWidget {
   const NotificationScreen2({super.key});
@@ -58,7 +59,10 @@ class NotificationScreen2 extends StatelessWidget {
             style: GoogleFonts.roboto(fontSize: 15, color: Colors.white),
           ),
           Spacer(),
-          CustomizeBlackButton(buttonName: 'Active', onPressed: () {}),
+          CustomizeBlackButton(buttonName: 'Active', onPressed: () async{
+            await Permission.location.request();
+            Navigator.pushReplacementNamed(context, AppRoute.selection);
+          }),
           SizedBox(height: 40),
         ],
       ),

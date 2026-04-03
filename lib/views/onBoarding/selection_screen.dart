@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kaarigar/core/routes/app_route.dart';
 import 'package:kaarigar/core/utils/text_style.dart';
-import 'package:kaarigar/services/shared_preferences_service.dart';
+import 'package:kaarigar/services/shared_preference/shared_preferences_service.dart';
 import 'package:kaarigar/views/widgets/customize_button/customize_blue_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 

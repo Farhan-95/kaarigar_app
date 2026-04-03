@@ -12,6 +12,12 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>Kaarigar needs your location to show you nearby service providers.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Kaarigar needs your location to track service progress even in the background.</string>
+    <key>PermissionGroupNotification</key>
+    <string>We need to send you updates about your booking status.</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
